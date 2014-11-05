@@ -4,9 +4,9 @@ ruby '2.1.2'
 
 gem 'rails', '4.2.0.beta1'
 
-gem 'bcrypt'               ,'~> 3.1.7'
+gem 'bcrypt'               ,'~> 3.1'
 gem 'bower-rails'          ,'~> 0.4'
-gem 'coffee-rails'         ,'~> 4.0.0'
+gem 'coffee-rails'         ,'~> 4.0'
 gem 'jbuilder'             ,'~> 2.0'
 gem 'pg'
 gem 'sass-rails'           ,'~> 5.0.0.beta1'
