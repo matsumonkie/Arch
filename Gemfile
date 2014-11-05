@@ -20,4 +20,5 @@ group :development, :test do
   gem 'spring'
   gem 'guard-rspec'   ,'~> 4.3', require: false
   gem 'rspec-rails'   ,'~> 3.0'
+  gem 'rake'          ,'~> 10.3'
 end
