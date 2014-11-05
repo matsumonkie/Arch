@@ -2,6 +2,10 @@ language: ruby
 rvm:
   - 2.1.2
 
+addons:
+  code_climate:
+    repo_token: e327ddbeae383f96df4c7856fe1e564ac2355e45dc98d42772da60499850914c
+
 before_script:
   - cp config/database.yml.travis config/database.yml
 

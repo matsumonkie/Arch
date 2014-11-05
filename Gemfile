@@ -22,3 +22,7 @@ group :development, :test do
   gem 'rspec-rails'   ,'~> 3.0'
   gem 'rake'          ,'~> 10.3'
 end
+
+group :test do
+  gem "codeclimate-test-reporter", require: nil
+end
