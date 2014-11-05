@@ -13,6 +13,7 @@ gem 'sass-rails'           ,'~> 5.0.0.beta1'
 gem 'slim-rails'
 gem 'uglifier'             ,'>= 1.3.0'
 gem 'rails-html-sanitizer' ,'~> 1.0'
+gem 'therubyracer'         , platforms: :ruby
 
 group :development, :test do
   gem 'byebug'
