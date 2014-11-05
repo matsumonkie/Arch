@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.1.2'
 
 gem 'rails', '4.2.0.beta1'
 
@@ -15,6 +16,8 @@ gem 'rails-html-sanitizer' ,'~> 1.0'
 
 group :development, :test do
   gem 'byebug'
-  gem 'web-console', '~> 2.0.0.beta2'
+  gem 'web-console'   ,'~> 2.0.0.beta2'
   gem 'spring'
+  gem 'guard-rspec'   ,'~> 4.3', require: false
+  gem 'rspec-rails'   ,'~> 3.0'
 end
