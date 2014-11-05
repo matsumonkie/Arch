@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.0.beta1'
 
 gem 'bcrypt'               ,'~> 3.1.7'
+gem 'bower-rails'          ,'~> 0.4'
 gem 'coffee-rails'         ,'~> 4.0.0'
 gem 'jbuilder'             ,'~> 2.0'
 gem 'pg'
