@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe WelcomeController do
+RSpec.describe UsersController do
   describe 'GET #index' do
 
     it 'renders the index template' do
@@ -8,4 +8,12 @@ RSpec.describe WelcomeController do
       expect(response).to render_template('index')
     end
   end
+
+  describe 'GET #new' do
+    it 'renders the new template' do
+      get :new
+      expect(response).to render_template('new')
+    end
+  end
+
 end
