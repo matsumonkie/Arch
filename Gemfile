@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.1.2'
 
-gem 'rails', '4.2.0.beta1'
+gem 'rails', '4.2.0.beta3'
 
 gem 'bcrypt'               ,'~> 3.1'
 gem 'bower-rails'          ,'~> 0.4'
