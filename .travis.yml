@@ -1,16 +1,18 @@
 language: ruby
 rvm:
-  - 2.1.2
+  - 2.2.0
+
+services:
+  - mongodb
 
 addons:
   code_climate:
     repo_token: e327ddbeae383f96df4c7856fe1e564ac2355e45dc98d42772da60499850914c
 
 before_script:
-  - cp config/database.yml.travis config/database.yml
+  - cp config/mongoid.yml.travis config/mongoid.yml
   - cp config/secrets.sample.yml config/secrets.yml
 
 script:
-  - RAILS_ENV=test bundle exec rake db:create && bundle exec rake db:schema:load
   - bundle exec rake bower:install
   - bundle exec rspec
