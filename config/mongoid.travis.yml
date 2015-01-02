@@ -1,7 +1,7 @@
 development:
   sessions:
     default:
-      database: arch_development
+      database: arch_test
       hosts:
         - localhost:27017
       options:

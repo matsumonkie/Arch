@@ -1,7 +1,7 @@
 development:
   sessions:
     default:
-      database: newintown_development
+      database: arch_development
       hosts:
         - localhost:27017
       options:
