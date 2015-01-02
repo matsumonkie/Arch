@@ -1,10 +1,18 @@
 development:
   sessions:
     default:
+      database: arch_development
+      hosts:
+        - localhost:27017
+      options:
+  options:
+test:
+  sessions:
+    default:
       database: arch_test
       hosts:
         - localhost:27017
       options:
-        consistency: :strong
-  options:
-    raise_not_found_error: false
+        read: primary
+        max_retries: 1
+        retry_interval: 0
