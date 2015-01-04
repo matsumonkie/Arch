@@ -1,15 +1,12 @@
-class UserOp
+class UserOp < Operation
 
-  class << self
-
-    def update(params)
-      User.find(params[:id]).tap do |user|
-        user.update(user_params(params))
-      end
+  def update(params)
+    User.find(params[:id]).tap do |user|
+      user.update(user_params(params))
     end
+  end
 
-    def user_params(params)
-      params.require(:user).permit(:firstname, :lastname)
-    end
+  def user_params(params)
+    params.require(:user).permit(:firstname, :lastname)
   end
 end
