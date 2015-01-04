@@ -4,15 +4,16 @@ RSpec.describe UsersController do
 
   describe 'GET #index' do
 
+    let(:user) { create(:user) }
+
     it 'index' do
       get :index
       expect(response).to render_template('index')
     end
-=begin
+
     it 'show' do
-      get :show
+      get :show, { id: user }
       expect(response).to be_success
     end
-=end
   end
 end
