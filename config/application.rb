@@ -11,6 +11,15 @@ Bundler.require(*Rails.groups)
 
 module Arch
   class Application < Rails::Application
+    model_load_paths = Dir.glob("app/models/**/")
+    #interaction_load_paths = Dir.glob("app/models/**/")
+    lib_load_paths = Dir.glob("lib/")
+    load_paths = model_load_paths + lib_load_paths
+
+    load_paths.each do |path|
+      config.autoload_paths << Rails.root.join(path)
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
