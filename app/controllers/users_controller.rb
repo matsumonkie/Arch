@@ -1,14 +1,15 @@
 class UsersController < ApplicationController
 
   def index
+    @users = UserOp.index(params)
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = UserOp.show(params)
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = UserOp.edit(params)
   end
 
   def update

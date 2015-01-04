@@ -1,11 +1,19 @@
 class Operation
 
+  def self.index(params)
+    self.new().index(params)
+  end
+
   def self.create(params)
     self.new().create(params)
   end
 
   def self.show(params)
     self.new().show(params)
+  end
+
+  def self.edit(params)
+    self.new().edit(params)
   end
 
   def self.update(params)
