@@ -27,5 +27,5 @@ end
 
 group :test do
   gem 'codeclimate-test-reporter', require: nil
-  gem 'factory_girl', '~> 4.5'
+  gem 'factory_girl_rails', '~> 4.5'
 end
