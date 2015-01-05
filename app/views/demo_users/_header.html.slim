@@ -1,2 +1,5 @@
-- if @current_user.demo_user?
-  p demo_user
+h2 = current_user.type
+
+= link_to("As Admin",   demo_user_path(current_user, { type: 'admin' }), method: :put, remote: true)
+= link_to("As Regular", demo_user_path(current_user, { type: 'regular' }), method: :put, remote: true)
+= link_to("As Visitor", demo_user_path(current_user, { type: 'visitor' }), method: :put, remote: true)
