@@ -17,12 +17,15 @@ gem 'rails-html-sanitizer' ,'~> 1.0'
 gem 'therubyracer'         , platforms: :ruby
 
 group :development, :test do
+  gem 'awesome_print'     ,:require => 'ap'
+  gem 'better_errors'     ,'~> 2.1'
+  gem 'binding_of_caller' , '~> 0.7'
   gem 'byebug'
-  gem 'web-console'   ,'~> 2.0'
+  gem 'hirb'
   gem 'spring'
-  gem 'guard-rspec'   ,'~> 4.3', require: false
-  gem 'rspec-rails'   ,'~> 3.0'
-  gem 'rake'          ,'~> 10.3'
+  gem 'guard-rspec' ,'~> 4.3', require: false
+  gem 'rspec-rails' ,'~> 3.0'
+  gem 'rake'        ,'~> 10.3'
 end
 
 group :test do

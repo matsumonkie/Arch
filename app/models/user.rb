@@ -16,4 +16,13 @@ class User
 
   field :firstname
   field :lastname
+
+  def type
+    self.class.to_s.underscore
+  end
+
+  def admin?; false; end
+  def visitor?; false; end
+  def demo_user?; false; end
+  def regular?; false; end
 end

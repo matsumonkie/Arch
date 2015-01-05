@@ -4,7 +4,7 @@ RSpec.describe UsersController do
 
   describe 'GET #index' do
 
-    let(:user) { create(:user) }
+    let(:user) { create(:regular) }
 
     it 'index' do
       get :index
