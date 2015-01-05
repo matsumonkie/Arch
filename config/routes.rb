@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :users
 
+  resources :demo_users, only: [:update]
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
