@@ -21,11 +21,11 @@ group :development, :test do
   gem 'better_errors'     ,'~> 2.1'
   gem 'binding_of_caller' , '~> 0.7'
   gem 'byebug'
-  gem 'hirb'
-  gem 'spring'
   gem 'guard-rspec' ,'~> 4.3', require: false
-  gem 'rspec-rails' ,'~> 3.0'
+  gem 'hirb'        ,'~> 0.7'
   gem 'rake'        ,'~> 10.3'
+  gem 'rspec-rails' ,'~> 3.0'
+  gem 'spring'
 end
 
 group :test do
