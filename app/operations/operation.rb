@@ -1,26 +1,25 @@
 class Operation
 
-  def self.index(params)
-    self.new().index(params)
+  def self.method_missing(method, *args, &block)
+    if respond_to_missing?(method)
+      define_dynamic_operation(method)
+      self.new().send(method, args.first, &block)
+    else
+      super
+    end
   end
 
-  def self.create(params)
-    self.new().create(params)
+  def self.respond_to_missing?(method_name, include_private = false)
+    self.new().respond_to?(method_name)
   end
 
-  def self.show(params)
-    self.new().show(params)
-  end
+  protected
 
-  def self.edit(params)
-    self.new().edit(params)
-  end
-
-  def self.update(params)
-    self.new().update(params)
-  end
-
-  def self.delete(params)
-    self.new().delete(params)
+  def self.define_dynamic_operation(method)
+    class_eval <<-RUBY
+      def self.#{method}(params)     # def self.operation(params)
+        self.new().#{method}(params) #   self.new().operation(params)
+      end                            # end
+    RUBY
   end
 end
