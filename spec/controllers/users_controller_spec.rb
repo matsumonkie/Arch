@@ -15,5 +15,10 @@ RSpec.describe UsersController do
       get :show, { id: user }
       expect(response).to be_success
     end
+
+    it 'edit' do
+      get :edit, { id: user }
+      expect(response).to be_success
+    end
   end
 end
