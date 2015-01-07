@@ -264,7 +264,7 @@ DEPENDENCIES
   devise (~> 3.4)
   factory_girl_rails (~> 4.5)
   guard-rspec (~> 4.3)
-  hirb
+  hirb (~> 0.7)
   jbuilder (~> 2.0)
   mongoid (~> 4.0)
   mongoid-tree
