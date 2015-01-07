@@ -30,5 +30,7 @@ end
 
 group :test do
   gem 'codeclimate-test-reporter', require: nil
+  gem 'database_cleaner', '~> 1.4'
   gem 'factory_girl_rails', '~> 4.5'
+  gem 'mongoid-tree', :require => 'mongoid/tree'
 end
