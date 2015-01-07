@@ -12,8 +12,11 @@ RSpec.describe Operation do
 
   it 'dynamically create method' do
     expect(nb_methods(SpecOp)).to eq(nb_methods(Operation))
-    SpecOp.index({}) # create a method
+    a = SpecOp.index({}) # create a method
     expect(nb_methods(SpecOp)).to eq(nb_methods(Operation) + 1)
+
+    b = SpecOp.index({})
+    expect(a).to eq(b)
   end
 
   it 'errors with undefined method' do
