@@ -17,7 +17,7 @@ module Role
     end
   end
 
-  def play_role(role)
+  def play(role)
     self.role = role
     yield(self)
   ensure
