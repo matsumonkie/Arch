@@ -1,5 +1,5 @@
-dependencies = ["$scope", "$rootScope", "userF", "$http", "$compile"]
-controller = (scope, rootScope, userF, http, compile) ->
+dependencies = ["$scope", "$rootScope", "userF", "$http", "$compile", "i18nS"]
+controller = (scope, rootScope, userF, http, compile, i18n) ->
   @user = userF.current
 
   @changeRole = (role) =>
