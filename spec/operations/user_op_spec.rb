@@ -20,12 +20,12 @@ RSpec.describe UserOp do
   end
 
   it 'update' do
-    params = ActionController::Parameters.new({
+    params = {
       id: user.id,
       user: {
         firstname: "coucou",
       }
-    })
+    }
     updated_user = UserOp.update(params)
     expect(updated_user.firstname).to eq(params[:user][:firstname])
   end
