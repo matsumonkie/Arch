@@ -8,12 +8,12 @@ RSpec.describe DemoUser, :type => :model do
 
   it "wraps a user" do
     expect(demo_user.demo_user?()).to be true
-    expect(demo_user.type).to eq("admin")
+    expect(demo_user.type).to eq(:admin)
   end
 
   it "change its type" do
-    expect(demo_user.type).to eq("admin")
+    expect(demo_user.type).to eq(:admin)
     new_demo_user = DemoUserOp.update({ id: demo_user.id, type: regular.type })
-    expect(new_demo_user.type).to eq("regular")
+    expect(new_demo_user.type).to eq(:regular)
   end
 end
