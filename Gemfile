@@ -6,6 +6,7 @@ gem 'rails', '4.2'
 
 gem 'bcrypt'               ,'~> 3.1'
 gem 'bower-rails'          ,'~> 0.4'
+gem 'cancancan'            ,'~> 1.10'
 gem 'coffee-rails'         ,'~> 4.1'
 gem 'devise'               ,'~> 3.4'
 gem 'jbuilder'             ,'~> 2.0'
