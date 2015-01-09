@@ -240,6 +240,8 @@ GEM
     tilt (1.4.1)
     timers (4.0.1)
       hitimes
+    traceroute (0.4.0)
+      rails (>= 3.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.0)
@@ -276,4 +278,5 @@ DEPENDENCIES
   slim-rails (~> 3.0)
   spring
   therubyracer
+  traceroute (~> 0.4)
   uglifier (~> 2.6)

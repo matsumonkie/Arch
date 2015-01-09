@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :demo_users, only: [:update]
   resources :translations, only: [:show]
-  resources :users
+  resources :users, only: [:index, :show, :edit, :update]
 
 
   get 'templates/*id', to: 'templates#show'
