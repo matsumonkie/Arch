@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :demo_users, only: [:update]
+  resources :translations, only: [:show]
   resources :users
+
 
   get 'templates/*id', to: 'templates#show'
 
