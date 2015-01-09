@@ -17,4 +17,12 @@ RSpec.describe Role, :type => :model do
     end
     expect(user.respond_to?(:do_something)).to_not be true
   end
+
+  it "raise error on no method found" do
+    user.play(SpecRole) do |user|
+      expect { user.do_something_else() }.to raise_error(NoMethodError)
+    end
+    expect(user.respond_to?(:do_something)).to_not be true
+  end
+
 end
