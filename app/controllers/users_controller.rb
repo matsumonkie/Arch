@@ -13,6 +13,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    redirect_to UserOp.update(params)
+    redirect_to action: :show, id: UserOp.update(params).id
   end
 end

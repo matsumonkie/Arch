@@ -20,5 +20,10 @@ RSpec.describe UsersController do
       get :edit, { id: user }
       expect(response).to be_success
     end
+
+    it 'update' do
+      put :update, { id: user, user: {foo: 1} }
+      expect(response).to be_redirect
+    end
   end
 end
