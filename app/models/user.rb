@@ -18,7 +18,7 @@ class User
   field :lastname
 
   def type
-    self.class.to_s.underscore
+    self.class.to_s.underscore.to_sym
   end
 
   def admin?; false; end

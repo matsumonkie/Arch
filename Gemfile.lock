@@ -52,6 +52,7 @@ GEM
       columnize (~> 0.8)
       debugger-linecache (~> 1.2)
       slop (~> 3.6)
+    cancancan (1.10.0)
     celluloid (0.16.0)
       timers (~> 4.0.0)
     codeclimate-test-reporter (0.4.4)
@@ -260,6 +261,7 @@ DEPENDENCIES
   binding_of_caller (~> 0.7)
   bower-rails (~> 0.4)
   byebug
+  cancancan (~> 1.10)
   codeclimate-test-reporter
   coffee-rails (~> 4.1)
   database_cleaner (~> 1.4)

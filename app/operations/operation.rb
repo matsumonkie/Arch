@@ -3,7 +3,7 @@ class Operation
   def self.method_missing(method, *args, &block)
     if respond_to_missing?(method)
       define_dynamic_operation(method)
-      self.new().send(method, args.first, &block)
+      self.send(method, args.first, &block)
     else
       super
     end
