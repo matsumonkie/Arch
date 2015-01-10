@@ -2,13 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   root 'welcome#index'
 
+  resources :specs, only: [:index]
   resources :demo_users, only: [:update]
   resources :translations, only: [:show]
   resources :users, only: [:index, :show, :edit, :update]
 
-
   get 'templates/*id', to: 'templates#show'
-
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

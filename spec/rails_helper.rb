@@ -4,6 +4,9 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
+require 'simplecov'
+SimpleCov.start if ENV["COVERAGE"]
+
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 RSpec.configure do |config|

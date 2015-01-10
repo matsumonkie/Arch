@@ -277,6 +277,7 @@ DEPENDENCIES
   rake (~> 10.3)
   rspec-rails (~> 3.0)
   sass-rails (~> 5.0)
+  simplecov (~> 0.9)
   slim-rails (~> 3.0)
   spring
   therubyracer
