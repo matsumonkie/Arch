@@ -9,13 +9,11 @@ class ApplicationController < ActionController::Base
   end
 
   def model
-    controller_name.capitalize.to_sym
+    controller_name.to_sym
   end
 
   def authorize
     user = Ability.new(current_user)
-    unless user.can?(action_name.to_sym, model())
-      raise ArgumentError
-    end
+    raise ArgumentError unless user.can?(action_name.to_sym, model())
   end
 end
