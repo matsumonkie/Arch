@@ -4,14 +4,12 @@ html
     title
       | Arch
     = stylesheet_link_tag    'application', media: 'all'
-    = javascript_include_tag 'application'
     = csrf_meta_tags
 
   = render partial: 'partials/header'
   body ng-app="app"
     i18n
-    p coucou {{ i18n.role.foo }} hehe
-    test
     role
-    test
     = yield
+
+  = javascript_include_tag 'application'

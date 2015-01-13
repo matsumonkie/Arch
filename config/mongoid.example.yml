@@ -6,6 +6,8 @@ development:
         - localhost:27017
       options:
   options:
+    raise_not_found_error: false
+
 test:
   sessions:
     default:
@@ -16,3 +18,5 @@ test:
         read: primary
         max_retries: 1
         retry_interval: 0
+  options:
+    raise_not_found_error: false

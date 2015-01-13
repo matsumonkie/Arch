@@ -13,7 +13,7 @@ RSpec.describe DemoUser, :type => :model do
 
   it "change its type" do
     expect(demo_user.type).to eq(:admin)
-    new_demo_user = DemoUserOp.update({ id: demo_user.id, type: regular.type })
+    new_demo_user = DemoUserOp.update({ role: regular.type })
     expect(new_demo_user.type).to eq(:regular)
   end
 end

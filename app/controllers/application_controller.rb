@@ -12,8 +12,20 @@ class ApplicationController < ActionController::Base
     controller_name.to_sym
   end
 
+  def action
+    action_name.to_sym
+  end
+
   def authorize
     user = Ability.new(current_user)
-    raise ArgumentError unless user.can?(action_name.to_sym, model())
+    @action, @model = action(), model()
+    return render_forbidden unless user.can?(@action, @model)
+  end
+
+  def render_forbidden
+    respond_to do |format|
+      format.html { render file: "#{Rails.root}/public/403", formats: [ :html ], status: :forbidden, layout: false }
+      format.json { render json: {}, status: :forbidden }
+    end
   end
 end
