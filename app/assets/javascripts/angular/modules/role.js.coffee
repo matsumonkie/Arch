@@ -1,9 +1,10 @@
-dependencies = ["$scope", "$rootScope", "userF", "i18nS"]
-controller = (scope, rootScope, userF, i18n) ->
-  @user = userF.current
+dependencies = ["userF"]
+controller = (userF) ->
+
+  userF.currentUser
 
   @changeRole = (role) =>
-    @user.role = role
+    @user.type = role
 
 module = angular.module("roleD", [])
 module.directive "role", ['templateS', (templateS) ->

@@ -1,7 +1,10 @@
 dependencies = ["userF"]
 controller = (userF) ->
-  userF.current_user().then (rUser) =>
-    @user = rUser.data
+
+  @currentUser = userF.currentUser
+
+  @signOut = () =>
+    userF.signOut()
 
 module = angular.module("signInD", [])
 module.directive "signin", ['templateS', (templateS) ->

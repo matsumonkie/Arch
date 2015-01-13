@@ -1,12 +1,7 @@
 module = angular.module("templateS", [])
 module.factory "templateS", ["$http", "$compile", "userF", (http, compile, userF) ->
 
-  @user = {}
-  @default = "visitor"
-  @user.type = @default
-
-  userF.current_user().then (rUser) =>
-    @user = rUser.data
+  @user = userF.currentUser
 
   @default = (template) => "#{@path(template)}/index_visitor"
 
@@ -15,7 +10,7 @@ module.factory "templateS", ["$http", "$compile", "userF", (http, compile, userF
   @link = (template) =>
     (scope, element, attrs) =>
       scope.$watch (=> @user.type), (newRole, formerRole) =>
-        if newRole isnt @default
+        if newRole isnt 'visitor'
           http.get("#{@path(template)}/index_#{newRole}").then (response) =>
             element.children().replaceWith compile(response.data)(scope)
 

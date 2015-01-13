@@ -1,8 +1,19 @@
 module = angular.module("userF", [])
 module.factory "userF", ["$http", (http) ->
 
-  current_user = () => http.get('/users/current')
+  @currentUser = {
+    type: "visitor"
+  }
 
-  current_user: current_user
+  initCurrentUser = () =>
+    http.get('/users/current').then (rUser) =>
+      _.merge(@currentUser, rUser.data)
+  initCurrentUser()
+
+  signOut = () =>
+    http.delete('/users/sign_out')
+
+  currentUser: @currentUser
+  signOut: signOut
 
 ]
