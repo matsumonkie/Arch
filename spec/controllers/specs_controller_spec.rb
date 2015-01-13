@@ -4,6 +4,7 @@ RSpec.describe SpecsController do
 
   it 'index' do
     expect(ApplicationController.new.model).to eq(:application)
-    expect { get :index }.to raise_error(ArgumentError)
+    get :index
+    expect(response.status).to eq(403)
   end
 end
