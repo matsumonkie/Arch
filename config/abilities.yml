@@ -1,8 +1,9 @@
 common: &common
-  welcome: read
+  sessions: create
   translations: show
   templates: crud
-  users: crud
+  users: [crud, current]
+  welcome: read
 
 signed_user: &signed_user
 
