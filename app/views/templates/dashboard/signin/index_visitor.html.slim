@@ -1,0 +1,7 @@
+p ng-click="roleC.changeRole('regular')"
+  = form_tag(user_session_path, method: 'post', remote: true) do |f|
+    = label_tag(:user_email, "email :")
+    = text_field(:user, :email)
+    = label_tag(:user_password, "password :")
+    = text_field(:user, :password)
+    = submit_tag('submit')
