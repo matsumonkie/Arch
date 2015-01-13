@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  resources :demo_users, only: [:update]
   resources :specs, only: [:index]
   resources :translations, only: [:show]
   resources :users, only: [:index, :show, :edit, :update] do
@@ -11,4 +10,5 @@ Rails.application.routes.draw do
   end
 
   get 'templates/*id', to: 'templates#show'
+  put 'demo_users', to: 'demo_users#update'
 end
