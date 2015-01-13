@@ -25,8 +25,7 @@ class ApplicationController < ActionController::Base
   def render_forbidden
     respond_to do |format|
       format.html { render file: "#{Rails.root}/public/403", formats: [ :html ], status: :forbidden, layout: false }
-      format.xml  { head :not_found }
-      format.any  { head :not_found }
+      format.json { render json: {}, status: :forbidden }
     end
   end
 end

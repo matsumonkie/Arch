@@ -1,7 +1,10 @@
 class DemoUsersController < ApplicationController
 
+  skip_before_filter :authorize, :only => :update
+
   def update
-    DemoUserOp.update(params)
-    render json: true
+    Rails.logger.fatal params
+
+    render json: DemoUserOp.update(params).to_json
   end
 end
