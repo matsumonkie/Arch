@@ -73,7 +73,4 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   #config.active_record.dump_schema_after_migration = false
-
-  LOADED_ABILITIES = HashWithIndifferentAccess.new(YAML.load(File.read(ABILITY_FILE)))
-  ABILITIES = ->() { LOADED_ABILITIES }
 end
