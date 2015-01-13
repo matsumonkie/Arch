@@ -15,4 +15,8 @@ class UsersController < ApplicationController
   def update
     redirect_to action: :show, id: UserOp.update(params).id
   end
+
+  def current
+    render json: current_user.to_json
+  end
 end
