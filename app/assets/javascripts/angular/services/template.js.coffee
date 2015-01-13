@@ -10,7 +10,7 @@ module.factory "templateS", ["$http", "$compile", "userF", (http, compile, userF
   @link = (template) =>
     (scope, element, attrs) =>
       scope.$watch (=> @user.type), (newRole, formerRole) =>
-        if newRole isnt 'visitor'
+        if newRole
           http.get("#{@path(template)}/index_#{newRole}").then (response) =>
             element.children().replaceWith compile(response.data)(scope)
 
