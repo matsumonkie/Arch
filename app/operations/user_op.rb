@@ -18,6 +18,10 @@ class UserOp < Operation
     end
   end
 
+  def current(current_user)
+    User.find(current_user.id)
+  end
+
   private
 
   def whitelist(params)
