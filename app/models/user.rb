@@ -28,6 +28,7 @@ class User
 
   def to_json
     {
+      id: id,
       email: email,
       firstname: firstname,
       lastname: lastname,
