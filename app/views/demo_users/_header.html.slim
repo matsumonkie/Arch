@@ -1,5 +1,6 @@
 h2 = current_user.type
 
-= link_to("As Admin",   demo_user_path(current_user, { type: 'admin' }), method: :put, remote: true)
-= link_to("As Regular", demo_user_path(current_user, { type: 'regular' }), method: :put, remote: true)
-= link_to("As Visitor", demo_user_path(current_user, { type: 'visitor' }), method: :put, remote: true)
+demo-user
+  a [ng-click="demoUserC.changeRole('admin')"] As Admin
+  a [ng-click="demoUserC.changeRole('regular')"] As regular
+  a [ng-click="demoUserC.changeRole('visitor')"] As visitor
