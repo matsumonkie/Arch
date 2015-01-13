@@ -14,6 +14,5 @@ module.directive "signin", ['templateS', (templateS) ->
   restrict: "E"
   controller: [dependencies..., controller]
   controllerAs: "signInC"
-  templateUrl: templateS.default('dashboard/signin')
   link: templateS.linker('dashboard/signin')
 ]
