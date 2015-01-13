@@ -41,5 +41,7 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-  ABILITIES = ->() { HashWithIndifferentAccess.new(YAML.load(ABILITY_FILE)) }
+  ABILITIES = ->() {
+    HashWithIndifferentAccess.new(YAML.load(File.read(ABILITY_FILE)))
+  }
 end
