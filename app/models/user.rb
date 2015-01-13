@@ -25,4 +25,13 @@ class User
   def visitor?; false; end
   def demo_user?; false; end
   def regular?; false; end
+
+  def to_json
+    {
+      email: email,
+      firstname: firstname,
+      lastname: lastname,
+      type: type,
+    }
+  end
 end
