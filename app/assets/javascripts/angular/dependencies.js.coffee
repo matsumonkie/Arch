@@ -5,6 +5,7 @@
   'LocalForageModule'
   'userF'
   'roleD'
+  'signInD'
   'templateS'
   'testD'
 ]

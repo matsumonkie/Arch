@@ -1,12 +1,12 @@
-dependencies = ["$scope", "$rootScope", "userF", "$http", "$compile", "i18nS"]
-controller = (scope, rootScope, userF, http, compile, i18n) ->
+dependencies = ["$scope", "$rootScope", "userF", "i18nS"]
+controller = (scope, rootScope, userF, i18n) ->
   @user = userF.current
 
   @changeRole = (role) =>
     @user.role = role
 
 module = angular.module("roleD", [])
-module.directive "role", ['$http', '$compile', 'templateS', (http, compile, templateS) ->
+module.directive "role", ['templateS', (templateS) ->
   restrict: "E"
   controller: [dependencies..., controller]
   controllerAs: "roleC"

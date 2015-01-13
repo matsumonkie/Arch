@@ -1,11 +1,11 @@
 module = angular.module("userF", [])
-module.factory "userF", ["$http", ($http) ->
+module.factory "userF", ["$http", (http) ->
 
-  @user =
-    firstname: "iori"
-    lastname: "tsu"
-    role: "visitor"
+  @current_user = {}
 
-  current: @user
+  foo = () =>
+    http.get('/users/current')
+
+  current_user: foo
 
 ]
