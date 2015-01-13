@@ -22,8 +22,15 @@ module.factory "userF", ["$http", (http) ->
     ).error (res) => _.merge(@currentUser, res)
       .success (res) => _.merge(@currentUser, res)
 
+  changeRole = (role) =>
+    http.put("/demo_users/", role: role)
+    .error (res) => _.merge(@currentUser, res)
+    .success (res) => _.merge(@currentUser, res)
+
+
   currentUser: @currentUser
   signOut: signOut
   signIn: signIn
+  changeRole: changeRole
 
 ]

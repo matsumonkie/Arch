@@ -1,4 +1,5 @@
 @dependencies = [
+  'demoUserD'
   'i18nD'
   'i18nS'
   'localForageS'
