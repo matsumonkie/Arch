@@ -1,4 +1,5 @@
 class Ability
+
   include CanCan::Ability
 
   def initialize(user)
@@ -20,7 +21,7 @@ class Ability
 
   def common_abilities
     can :crud, :welcome
-    can :create, :sessions
+    can [:create, :destroy], :sessions
     can :show, :translations
     can :crud, :templates
     can [:crud, :current], :users
