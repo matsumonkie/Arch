@@ -13,13 +13,13 @@ class Users::SessionsController < Devise::SessionsController
       user = Visitor.new
     end
 
-    render json: user.to_json, status: http
+    render json: user, status: http
   end
 
   def destroy
     Devise.sign_out_all_scopes ? sign_out : sign_out('user')
 
-    render json: Visitor.new.to_json
+    render json: Visitor.new
   end
 
   # protected
