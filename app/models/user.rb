@@ -1,13 +1,11 @@
 class User
 
   include Role
-
   include Mongoid::Document
   include Mongoid::Timestamps
 
   devise :database_authenticatable, :recoverable, :rememberable, :registerable
 
-  # devise
   field :email, type: String, default: ""
   field :encrypted_password,     type: String, default: ""
   field :reset_password_token,   type: String
@@ -21,8 +19,12 @@ class User
     self.class.to_s.underscore.to_sym
   end
 
-  def admin?; false; end
-  def visitor?; false; end
+  def active_model_serializer
+    UserSerializer
+  end
+
+  def admin?;     false; end
+  def visitor?;   false; end
   def demo_user?; false; end
-  def regular?; false; end
+  def regular?;   false; end
 end
