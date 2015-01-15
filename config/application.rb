@@ -20,6 +20,8 @@ module Arch
       config.autoload_paths << Rails.root.join(path)
     end
 
+    config.quiet_assets_paths << '/__meta_request/'
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

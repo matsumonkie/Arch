@@ -27,6 +27,7 @@ group :development, :test do
   gem 'guard-rspec'  ,'~> 4.3', require: false
   gem 'hirb'         ,'~> 0.7'
   gem 'meta_request' ,'~> 0.2'
+  gem 'quiet_assets' ,'~> 1.1'
   gem 'rack-mini-profiler', '~> 0.9', require: false
   gem 'rake'        ,'~> 10.3'
   gem 'rspec-rails' ,'~> 3.0'
