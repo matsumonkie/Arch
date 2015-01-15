@@ -11,6 +11,6 @@ class UserForm < Form
   protected
 
   def whitelist(params)
-    super { |params| params.require(:user).permit(:firstname, :lastname, :email) }
+    super(params).require(:user).permit(:firstname, :lastname, :email)
   end
 end
