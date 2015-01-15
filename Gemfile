@@ -22,10 +22,11 @@ gem 'therubyracer'         , platforms: :ruby
 group :development, :test do
   gem 'awesome_print'     ,:require => 'ap'
   gem 'better_errors'     ,'~> 2.1'
-  gem 'binding_of_caller' , '~> 0.7'
+  gem 'binding_of_caller' ,'~> 0.7'
   gem 'byebug'
   gem 'guard-rspec' ,'~> 4.3', require: false
   gem 'hirb'        ,'~> 0.7'
+  gem 'rack-mini-profiler', '~> 0.9', require: false
   gem 'rake'        ,'~> 10.3'
   gem 'rspec-rails' ,'~> 3.0'
   gem 'spring'
