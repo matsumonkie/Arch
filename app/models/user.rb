@@ -12,8 +12,8 @@ class User
   field :reset_password_sent_at, type: Time
   field :remember_created_at,    type: Time
 
-  field :firstname
-  field :lastname
+  field :firstname, type: String
+  field :lastname,  type: String
 
   def type
     self.class.to_s.underscore.to_sym
