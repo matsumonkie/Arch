@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def index
     @users = UserOp.index(params)
+    respond_with @users
   end
 
   def show
@@ -17,6 +18,6 @@ class UsersController < ApplicationController
   end
 
   def current
-    render json: current_user.to_json
+    render json: current_user
   end
 end

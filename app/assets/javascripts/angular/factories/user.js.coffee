@@ -6,7 +6,7 @@ module.factory "userF", ["$http", (http) ->
   }
 
   initCurrentUser = () =>
-    http.get('/users/current').then (rUser) =>
+    http.get('/users/current.json').then (rUser) =>
       _.merge(@currentUser, rUser.data)
   initCurrentUser()
 

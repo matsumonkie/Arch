@@ -275,6 +275,7 @@ DEPENDENCIES
   rails (= 4.2)
   rails-html-sanitizer (~> 1.0)
   rake (~> 10.3)
+  responders (~> 2.0)
   rspec-rails (~> 3.0)
   sass-rails (~> 5.0)
   simplecov (~> 0.9)
