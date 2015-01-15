@@ -19,7 +19,7 @@ RSpec.describe UserOp do
     expect(user_to_edit.type).to eq(user.type)
   end
 
-  it 'update' do
+  it 'update with success' do
     params = {
       id: user.id,
       user: {
@@ -28,5 +28,19 @@ RSpec.describe UserOp do
     }
     updated_user = UserOp.update(params)
     expect(updated_user.firstname).to eq(params[:user][:firstname])
+    expect(updated_user.errors.any?).to be false
+  end
+
+  it 'doesnt update' do
+    params = {
+      id: user.id,
+      user: {
+        firstname: "coucou",
+        email: "",
+      }
+    }
+    updated_user = UserOp.update(params)
+    expect(updated_user.errors.any?).to be true
+    expect(updated_user.errors.messages.keys).to include(:email)
   end
 end

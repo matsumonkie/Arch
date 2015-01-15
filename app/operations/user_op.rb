@@ -13,18 +13,13 @@ class UserOp < Operation
   end
 
   def update(params)
-    User.find(params[:id]).tap do |user|
-      user.update(whitelist(params))
+    UserForm.new(User.find(params[:id])).tap do |user|
+      user.attributes(params)
+      user.save if user.valid?
     end
   end
 
   def current(current_user)
     User.find(current_user.id)
-  end
-
-  private
-
-  def whitelist(params)
-    params.require(:user).permit(:firstname, :lastname)
   end
 end

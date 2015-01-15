@@ -18,7 +18,6 @@ class Operation
   def self.define_dynamic_operation(method)
     class_eval <<-RUBY
       def self.#{method}(params)
-        params = ActionController::Parameters.new(params)
         self.new().#{method}(params)
       end
     RUBY
