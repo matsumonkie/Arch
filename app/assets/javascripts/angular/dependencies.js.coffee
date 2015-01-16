@@ -4,9 +4,11 @@
   'i18nS'
   'localForageS'
   'LocalForageModule'
-  'userF'
+  'ngRoute'
   'roleD'
   'signInD'
   'templateS'
   'testD'
+  'userF'
+  'UserController'
 ]
