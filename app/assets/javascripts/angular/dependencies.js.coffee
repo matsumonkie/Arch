@@ -7,8 +7,10 @@
   'ngRoute'
   'roleD'
   'signInD'
+  'templates'
   'templateS'
   'testD'
   'userF'
   'UserController'
+  'RootController'
 ]

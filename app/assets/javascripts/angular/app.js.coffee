@@ -7,8 +7,18 @@ app.config ["$httpProvider", ($httpProvider) ->
   $httpProvider.defaults.headers.common["X-CSRF-TOKEN"] = token
 ]
 
-app.config ($routeProvider, $locationProvider) ->
+app.config ($routeProvider) ->
   $routeProvider
-    .when "/users",
+    .when '/',
+      templateUrl: "/assets/header/index.html"
+      controller: "RootController"
+    .when '/users/:id',
+      template: "index.html"
       controller: "UserController"
-    .otherwise({ redirectTo: "/contacts" })
+
+myApp = angular.module("UserController", [])
+myApp.controller "UserController", ($routeParams) ->
+
+
+myApp = angular.module("RootController", [])
+myApp.controller "RootController", ($scope) ->

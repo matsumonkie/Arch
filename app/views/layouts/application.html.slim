@@ -3,12 +3,7 @@ html
   head
     title
       | Arch
-    = stylesheet_link_tag    'application', media: 'all'
+    = stylesheet_link_tag 'application', media: 'all'
     = csrf_meta_tags
-
-  = render partial: 'partials/header'
-  body ng-app="app"
-    i18n
-    = yield
-
+  body ng-app="app" : ng-view
   = javascript_include_tag 'application'

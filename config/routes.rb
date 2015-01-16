@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'welcome#index'
+=begin
   devise_for :users, controllers: { sessions: 'users/sessions' }
 
   root 'welcome#index'
@@ -11,4 +13,5 @@ Rails.application.routes.draw do
 
   get 'templates/*id', to: 'templates#show'
   put 'demo_users', to: 'demo_users#update'
+=end
 end
