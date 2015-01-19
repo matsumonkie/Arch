@@ -5,5 +5,8 @@ html
       | Arch
     = stylesheet_link_tag 'application', media: 'all'
     = csrf_meta_tags
-  body ng-app="app" : ng-view
+  body ng-app="app"
+    div [ui-view]
+    a [ui-sref="state1"] State 1
+
   = javascript_include_tag 'application'
