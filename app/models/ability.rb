@@ -2,7 +2,10 @@ class Ability
 
   include CanCan::Ability
 
-  def initialize(user)
+  def initialize(user, params = {})
+    @params = params
+    @user = user
+    @id = user.id.to_s
     set_alias()
     set_abilities(user.type.to_sym)
   end
@@ -13,31 +16,41 @@ class Ability
 
   def set_abilities(type)
     case type
-    when :admin   then admin()
-    when :regular then regular()
-    when :visitor then visitor()
+    when :admin      then admin()
+    when :regular    then regular()
+    else
+      visitor()
     end
   end
 
   def common_abilities
-    can :crud, :welcome
-    can [:create, :destroy], :sessions
-    can :show, :translations
-    can :crud, :templates
-    can [:crud, :current], :users
+    can [:index]             ,:users
   end
 
   def signed_user_abilities
+    me = @user if(@params[:user_id] == @id)
+    can [:update], :avatars do |_| me end
   end
 
   def admin_abilities
     can :manage, :all
   end
 
-  def regular_abilities
+  def transferee_abilities
+    me = @user if(@params[:user_id] == @id)
+
+    can [:index, :create, :update, :destroy], :labeled_notes do |_|
+      res = @params[:user_id] == @id
+      unless @params[:id].blank?
+        my_notes = (@user.notes.find(@params[:id]).author.id.to_s == @id)
+        res = res && my_notes
+      end
+      res
+    end
   end
 
   def visitor_abilities
+    can [:confirm, :activate, :reset_password], :accounts
   end
 
   def admin
@@ -49,7 +62,6 @@ class Ability
   def regular
     common_abilities()
     signed_user_abilities()
-    regular_abilities()
   end
 
   def visitor

@@ -17,9 +17,13 @@ module Role
     end
   end
 
-  def play(role)
+  def play(role, method = nil)
     self.role = role
-    yield(self)
+    if method
+      self.send(method)
+    else
+      yield(self)
+    end
   ensure
     self.role = nil
   end

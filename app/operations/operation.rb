@@ -1,9 +1,11 @@
 class Operation
 
+  include If
+
   def self.method_missing(method, *args, &block)
     if respond_to_missing?(method)
       define_dynamic_operation(method)
-      self.send(method, args.first, &block)
+      self.send(method, *args, &block)
     else
       super
     end
@@ -17,8 +19,8 @@ class Operation
 
   def self.define_dynamic_operation(method)
     class_eval <<-RUBY
-      def self.#{method}(params)
-        self.new().#{method}(params)
+      def self.#{method}(*params)
+        self.new().#{method}(*params)
       end
     RUBY
   end

@@ -1,7 +1,17 @@
 development:
   sessions:
     default:
-      database: arch_development
+      database: app_development
+      hosts:
+        - localhost:27017
+      options:
+  options:
+    raise_not_found_error: false
+
+staging:
+  sessions:
+    default:
+      database: app_staging
       hosts:
         - localhost:27017
       options:
@@ -11,7 +21,7 @@ development:
 test:
   sessions:
     default:
-      database: arch_test
+      database: app_test
       hosts:
         - localhost:27017
       options:

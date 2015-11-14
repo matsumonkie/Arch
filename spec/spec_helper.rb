@@ -1,8 +1,6 @@
-require "codeclimate-test-reporter"
-CodeClimate::TestReporter.start
-
 RSpec.configure do |config|
   #config.include Devise::TestHelpers, type: :controller
+  require "rack_session_access/capybara"
 
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`

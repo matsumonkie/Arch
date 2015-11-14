@@ -22,4 +22,12 @@ RSpec.describe Operation do
   it 'errors with undefined method' do
     expect { UserOp.undefined_method({}) }.to raise_error(NoMethodError)
   end
+
+  it 'handles multiple argument' do
+    res = 0
+    expect {
+      res = SpecOp.multiply(3, 4)
+    }.to_not raise_error
+    expect(res).to eq 12
+  end
 end

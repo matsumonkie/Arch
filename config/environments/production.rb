@@ -1,5 +1,19 @@
 Rails.application.configure do
-  # Settings specified here will take precedence over those in config/application.rb.
+
+  # Mail
+  host = 'https://app.com'
+  config.action_mailer.asset_host = host
+  config.action_mailer.default_url_options = { host: host }
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    :user_name => Rails.application.secrets.email['login'],
+    :password => Rails.application.secrets.email['password'],
+    :address => 'smtp.gmail.com',
+    :port => '587',
+    :authentication => 'plain',
+    :enable_starttls_auto => true
+  }
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -20,7 +34,7 @@ Rails.application.configure do
   # config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or NGINX will already do this).
-  config.serve_static_assets = false
+  config.serve_static_file = true
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -72,5 +86,5 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # Do not dump schema after migrations.
-  #config.active_record.dump_schema_after_migration = false
+  # config.active_record.dump_schema_after_migration = false
 end

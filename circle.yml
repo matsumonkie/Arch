@@ -1,0 +1,15 @@
+machine:
+  ruby:
+    version: 2.2.0
+
+checkout:
+  post:
+    - mv config/secrets.sample.yml config/secrets.yml
+
+dependencies:
+  post:
+    - bundle exec rake bower:install['-f']
+
+database:
+  override:
+    - mv config/mongoid.example.yml config/mongoid.yml

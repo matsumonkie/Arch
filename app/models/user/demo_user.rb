@@ -4,7 +4,11 @@ class DemoUser < User
 
   belongs_to :user
 
-  def_delegators :user, :type, :firstname, :lastname
-
   def demo_user?; true; end
+
+  def_delegators *%i[
+    user
+    active_model_serializer admin?
+    visitor?
+  ]
 end

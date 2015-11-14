@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Role, :type => :model do
 
-  let(:user) { build(:regular) }
+  let(:user) { build(:hr) }
 
   module SpecRole
     def do_something
@@ -25,4 +25,10 @@ RSpec.describe Role, :type => :model do
     expect(user.respond_to?(:do_something)).to_not be true
   end
 
+  it "can use to_proc shortcut" do
+    expect(user.play(SpecRole, :do_something)).to eq 1
+    expect {
+      user.play(SpecRole, :do_something_else).to eq 1
+    }.to raise_error(NoMethodError)
+  end
 end

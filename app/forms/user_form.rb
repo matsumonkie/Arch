@@ -1,16 +1,12 @@
-class UserForm < Form
-
-  include ActiveModel::Validations
+class NewUserForm < Form
 
   validates :email, presence: true
-
-  def attributes(params)
-    self.attributes = whitelist(params)
-  end
+  validates :encrypted_password, presence: true
+  validates :salt, presence: true
 
   protected
 
   def whitelist(params)
-    super(params).require(:user).permit(:firstname, :lastname, :email)
+    super(params).require(:user).permit(:firstname, :lastname, :email, :salt, :encrypted_password)
   end
 end

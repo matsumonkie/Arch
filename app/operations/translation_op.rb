@@ -1,7 +1,11 @@
 class TranslationOp < Operation
 
-  def show(params)
-    Hash[I18n.t(params[:id])]
+  def index(params)
+    modules = params[:id]
+    modules.inject({}) do |translations, e|
+      current_translation = { "#{e}": Hash[I18n.t(e)] }
+      translations.merge(current_translation)
+    end
   rescue ArgumentError
     {}
   end

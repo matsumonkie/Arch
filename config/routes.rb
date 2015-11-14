@@ -1,14 +1,21 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { sessions: 'users/sessions' }
-
-  root 'welcome#index'
-
-  resources :specs, only: [:index]
-  resources :translations, only: [:show]
-  resources :users, only: [:index, :show, :edit, :update] do
-    get 'current', on: :collection
+  root 'static_pages#index'
+  get 's/:page', to: 'static_pages#show', as: :show_static
+ 
+  if Rails.env.development?
+    match "/as/:type/*route" => "easy_query#as", via: [:get, :post, :put, :patch, :destroy, :option]
   end
 
-  get 'templates/*id', to: 'templates#show'
-  put 'demo_users', to: 'demo_users#update'
+  resources :accounts, only: [] do
+    collection do
+      get 'confirm'
+      put 'activate'
+      put 'reset_password'
+    end
+  end
+
+  namespace :api do
+    resources :users, only: [:index]      
+    end
+  end
 end

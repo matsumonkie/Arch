@@ -1,0 +1,18 @@
+app_email: info@app.com
+handshake_url: /api/handshake
+
+development:
+  whitelabel_url: //dev.app.com
+  load_font: 'false'
+
+test:
+  whitelabel_url: //localhost:3001
+  load_font: 'false'
+
+staging:
+  whitelabel_url: //stage.app.com
+  load_font: 'true'
+
+production:
+  whitelabel_url: //www.app.com
+  load_font: 'true'

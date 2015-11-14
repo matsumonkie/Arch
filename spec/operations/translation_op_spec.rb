@@ -3,7 +3,6 @@ require "rails_helper"
 RSpec.describe TranslationOp do
 
   it "translate" do
-    expect(TranslationOp.show({ id: 'spec' })).to eq({ foo: 'bar' })
-    expect(TranslationOp.show({ id: 'whatever' })).to eq({})
+    expect(TranslationOp.index({ id: ['spec'] })).to eq({ spec: { foo: 'bar' }})
   end
 end

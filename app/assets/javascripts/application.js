@@ -1,8 +1,3 @@
-//= require angular
-//= require jquery
-//= require jquery-ujs
-//= require lodash
-//= require localforage
-//= require angular-localforage
-
-//= require_tree .
+//= require ./librairies
+//= require_tree ./lib
+//= require_tree ./angular/regular
