@@ -20,7 +20,7 @@ module Authentifiable
         Visitor.new()
       end
     else
-      Visitor.new(locale: session[:locale] || :en)
+      Visitor.new
     end
   end
 

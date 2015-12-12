@@ -16,7 +16,5 @@ module Arch
     load_paths.each { |path| config.autoload_paths << Rails.root.join(path) }
 
     config.quiet_assets_paths << '/__meta_request/' if Rails.env.development?
-
-    config.middleware.use Rack::Attack
   end
 end

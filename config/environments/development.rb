@@ -7,22 +7,17 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
-    :user_name => Rails.application.secrets.mailtrap['username'],
-    :password => Rails.application.secrets.mailtrap['password'],
+    :user_name => "",
+    :password => "",
     :address => 'mailtrap.io',
     :domain => 'mailtrap.io',
     :port => '2525',
     :authentication => :cram_md5
   }
 
-  # LOG
-  config.lograge.enabled = true
-  config.lograge.ignore_actions = ['api/feeds#index']
   # comment lines to show mongoid requests
   Mongoid.logger.level = Logger::INFO
   Moped.logger.level = Logger::INFO
-
-  config.rack_dev_mark.enable = true
 
   config.action_mailer.preview_path = "#{Rails.root}/spec/mail_previews"
 
@@ -63,7 +58,4 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
-  # Raises error for missing translations
-  # config.action_view.raise_on_missing_translations = true
-  config.action_mailer.asset_host = "localhost:3000"
 end

@@ -7,32 +7,22 @@ gem 'rails', '4.2'
 gem 'unicorn'
 
 gem 'active_model_serializers' ,'~> 0.8.3'
-gem 'angular-rails-templates'  ,'~> 0.1'
 gem 'bcrypt'                   ,'~> 3.1'
 gem 'bower-rails'              ,'~> 0.4'
 gem 'cancancan'                ,'~> 1.10'
 gem 'coffee-rails'             ,'~> 4.1'
-gem 'data_uri'                 ,'~> 0.1'
-gem 'faker'                    ,'~> 1.4'
 gem 'figaro'                   ,'~> 1.1'
 gem 'jbuilder'                 ,'~> 2.0'
 gem 'mongoid'                  ,'~> 4.0'
 gem 'nokogiri'                 ,'~> 1.6'
-gem 'rack-attack'              ,'~> 4.2'
 gem 'rails-html-sanitizer'     ,'~> 1.0'
-gem 'redis'                    ,'~> 3.2'
-gem 'redis-namespace'          ,'~> 1.3'
 gem 'responders'               ,'~> 2.0'
 gem 'sass-rails'               ,'~> 5.0'
-gem 'sidekiq'                  ,'~> 3.3'
 gem 'sinatra', :require => nil
 gem 'slim-rails'               ,'~> 3.0'
-gem 'stripe'                   ,:git => 'https://github.com/stripe/stripe-ruby'
 gem 'therubyracer'             ,platforms: :ruby
 gem 'uglifier'                 ,'~> 2.6'
-gem 'valid_email'              ,'~> 0.0'
-gem 'rack-dev-mark'            ,'~> 0.7'
-gem 'whenever'                 ,'~> 0.9', :require => false
+
 group :development, :test do
   gem 'awesome_print'      ,'~> 1.6'
   gem 'better_errors'      ,'~> 2.1'

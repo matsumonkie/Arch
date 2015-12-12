@@ -1,5 +1,6 @@
 class RegularSerializer < UserSerializer
 
+=begin
   attributes *%i[
     notes
   ]
@@ -11,4 +12,5 @@ class RegularSerializer < UserSerializer
   def notes?
     regular?
   end
+=end
 end

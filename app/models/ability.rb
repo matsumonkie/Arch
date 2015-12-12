@@ -29,6 +29,7 @@ class Ability
 
   def signed_user_abilities
     me = @user if(@params[:user_id] == @id)
+    can [:update_email], :users do |_| me end
     can [:update], :avatars do |_| me end
   end
 
@@ -36,7 +37,7 @@ class Ability
     can :manage, :all
   end
 
-  def transferee_abilities
+  def regular_abilities
     me = @user if(@params[:user_id] == @id)
 
     can [:index, :create, :update, :destroy], :labeled_notes do |_|

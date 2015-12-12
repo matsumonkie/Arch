@@ -6,7 +6,6 @@ development:
         - localhost:27017
       options:
   options:
-    raise_not_found_error: false
 
 staging:
   sessions:
@@ -16,7 +15,6 @@ staging:
         - localhost:27017
       options:
   options:
-    raise_not_found_error: false
 
 test:
   sessions:
@@ -29,4 +27,3 @@ test:
         max_retries: 1
         retry_interval: 0
   options:
-    raise_not_found_error: false

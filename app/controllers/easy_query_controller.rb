@@ -2,8 +2,8 @@
 # in development mode without having to deal with session or anything
 #
 # ex:
-#   target: /api/user/current as an HR
-#   fake_url: https://dev.settle-in.com/as/h/api/users/current
+#   target: /api/user/current as an admin
+#   fake_url: https://localhost:3000/as/a/api/users/current
 #
 class EasyQueryController < ApplicationController
 
@@ -20,7 +20,6 @@ class EasyQueryController < ApplicationController
   protected
 
   def open_session(user)
-    session[:locale] = user.locale
     create_session(user._id)
   end
 
@@ -32,8 +31,7 @@ class EasyQueryController < ApplicationController
   def user_type(type)
     case type.to_sym
     when :a then 'Admin'
-    when :h then 'Hr'
-    when :t then 'Transferee'
+    when :r then 'Regular'
     when :v then 'Visitor'
     end
   end
