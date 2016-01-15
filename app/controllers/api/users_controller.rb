@@ -5,6 +5,8 @@ class Api::UsersController < ApplicationController
   end
 
   def update_email
-    render_for UserOp.update_email(params)
+    res =
+      UserOp.update_email(params)
+    render_for res
   end
 end

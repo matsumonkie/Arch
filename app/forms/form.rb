@@ -1,45 +1,83 @@
-class Form < SimpleDelegator
+module FormState
 
-  include ActiveModel::Validations
-
-  def initialize(object, params = {})
-    super(object)
-    @model_errors = ActiveModel::Errors.new({})
-    if object then attributes(params) else model_not_found end
-  end
-
-  def valid?
-    if @model_errors.any? then false else super end
-  end
-
-  def errors
-    if @model_errors.any? then model_not_found() else super end
-  end
-
-  def model_not_found(model_errors = {})
-    model_errors.each { |key, value| @model_errors.add(key, value) }
-  end
-
-  def attributes(params)
-    self.attributes = whitelist(params)
-  end
-
-  def delegated
-    __getobj__
-  end
-
-  def tip
-    inside_form = yield self
-    if inside_form.is_a? Form
-      inside_form
-    else
-      self
+  def self.included(base)
+    base.class_eval do
+      public_class_method :new
+      extend  ClassMethods
+      include InstanceMethods
     end
   end
 
-  protected
+  module ClassMethods
+    def unit(value)
+      new(value)
+    end
+  end
 
-  def whitelist(params)
-    ActionController::Parameters.new(params)
+  module InstanceMethods
+    def initialize(value)
+      @value = join(value)
+    end
+  end
+end
+
+def Error(attr, error)
+  { attr => error }
+end
+
+module Coercion
+  extend ActiveSupport::Concern
+
+  included do
+    cattr_accessor :constraints, :errors
+    self.constraints = []
+
+    def run_errors
+      self.errors ||= self.constraints.map do |method|
+        self.send(method)
+      end.compact
+    end
+
+    def valid?
+      errors = run_errors
+      errors.empty?
+    end
+  end
+
+  class_methods do
+    def coerce *arg
+      arg.each do |constraint|
+        self.constraints << constraint
+      end
+    end
+  end
+end
+
+class Form < Either
+
+  include FormState
+  include Coercion
+
+  attr_reader :model
+
+  def initialize(model)
+    @model = model
+  end
+end
+
+def Form(form_class, model, raw_params = {})
+  params = ActionController::Parameters.new(raw_params)
+  attributes =
+    params.require(form_class::MODEL)
+          .permit(*form_class::WHITELIST)
+
+  dup = model.dup
+  dup.attributes = attributes
+
+  form = form_class.new(dup)
+  if form.valid?
+    Success.new(form)
+  else
+    Failure.new(form)
   end
 end

@@ -5,19 +5,11 @@ Rails.application.routes.draw do
     match "/as/:type/*route" => "easy_query#as", via: [:get, :post, :put, :patch, :destroy, :option]
   end
 
-  resources :accounts, only: [] do
-    collection do
-      get 'confirm'
-      put 'activate'
-      put 'reset_password'
-    end
-  end
-
-  namespace :api do
+  namespace :api, only: [] do
     resources :users do
       collection do
         get 'index'
-        get 'update_email'
+        put 'update_email'
       end
     end
   end

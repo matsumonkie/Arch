@@ -24,7 +24,7 @@ class Ability
   end
 
   def common_abilities
-    can [:index]             ,:users
+    can [:index], :users
   end
 
   def signed_user_abilities

@@ -185,6 +185,7 @@ GEM
     mime-types (2.4.3)
     mini_portile (0.6.2)
     minitest (5.5.1)
+    monadic (0.8.1)
     mongoid (4.0.1)
       activemodel (~> 4.0)
       moped (~> 2.0.0)
@@ -387,6 +388,7 @@ DEPENDENCIES
   libnotify (~> 0.9)
   lograge (~> 0.3)
   meta_request (~> 0.2)
+  monadic (~> 0.8)
   mongoid (~> 4.0)
   mongoid-tree
   nokogiri (~> 1.6)

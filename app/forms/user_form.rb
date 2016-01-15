@@ -1,12 +1,21 @@
-class NewUserForm < Form
+class UserForm < Form
 
-  validates :email, presence: true
-  validates :encrypted_password, presence: true
-  validates :salt, presence: true
+  MODEL = :user
+  WHITELIST = :firstname
 
-  protected
+  #  constraint: ->() { firstname.present? }
+  coerce :firstname
+  coerce :b, :c
 
-  def whitelist(params)
-    super(params).require(:user).permit(:firstname, :lastname, :email, :salt, :encrypted_password)
+  def firstname
+    Error(:firstname, :not_valid) if true
+  end
+
+  def b
+    puts "in b"
+  end
+
+  def c
+    puts "in c"
   end
 end

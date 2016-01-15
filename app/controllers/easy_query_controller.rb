@@ -10,29 +10,18 @@ class EasyQueryController < ApplicationController
   include Sessionable
 
   def as
-    open_session(DemoUser.first)
     type = user_type(params[:type])
-    change_role(type)
-
-    redirect_to "/#{params[:route]}"
+    create_session(type.first._id)
+    redirect_to "/#{params[:route]}", status: :temporary_redirect
   end
 
   protected
 
-  def open_session(user)
-    create_session(user._id)
-  end
-
-  def change_role(type)
-    demo_user_params = { demo_user: { role: type } }
-    DemoUserOp.update(demo_user_params)
-  end
-
   def user_type(type)
     case type.to_sym
-    when :a then 'Admin'
-    when :r then 'Regular'
-    when :v then 'Visitor'
+    when :a then Admin
+    when :r then Regular
+    when :v then Visitor
     end
   end
 end
