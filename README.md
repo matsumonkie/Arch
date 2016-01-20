@@ -12,7 +12,7 @@ This distinction make it easier to code/improve/test/debug. This is how it is be
 - roles
 - serializers
 
-** Controllers **
+## Controllers
 
 I like thin controllers, meaning I don't want my controllers to take a lot of responsability and be a complete mess.
 Controllers take the responsability of security/authentication and rendering, that's all they do
@@ -63,7 +63,7 @@ class Api::UsersController < ApplicationController
 end
 {% endhighlight %}
 
-** Models **
+## Models
 
 Models should also be thin.
 They usually only include concerns or attributes read only methods. Every methods that mutate the model will not be directly included in the model.
@@ -88,7 +88,7 @@ end
 See how thin the model is. So how would you interact with an object ? Here comes the Role!
 We must include the module Role in every models to be able to use it.
 
-** Role **
+## Role
 
 A role is a set of methods that you can inject at runtime in a model.
 The idea is to enhance a model with a specific set of methods temporarily at runtime.
@@ -120,7 +120,7 @@ Injecting a role is quite easy. You just need to call the play function with its
 
 But this injection should be done in an operation.
 
-** Operation **
+## Operation
 
 Operation are where everything are bound and operate.
 An operation is the business part of the application, it will instantiate/edit/delete the models, bind them to roles, call external services, ...
@@ -137,7 +137,7 @@ class PasswordOp < Operation
   end
 {% endhighlight %}
 
-** Form **
+## Form
 
 Form are yet another independent module that helps validate data
 Form are still a WIP but this is basically how it should work eventually.
